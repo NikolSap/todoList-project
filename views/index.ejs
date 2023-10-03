@@ -1,0 +1,41 @@
+<script src="https://kit.fontawesome.com/a1a0aee510.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital@0;1&display=swap" rel="stylesheet">
+<%- include("partials/header.ejs") %>
+
+<div class="body">
+  <h1><%= day %> ,<%= date %> <%= month %> <%= year %></h1>
+
+  <div class="card">
+
+    <form action="/" method="POST">
+      <input type="text" id="task" name="task" placeholder="New Task" />
+      <input type="submit" value="+">
+    </form>
+  
+
+      <div class="input-container">
+
+        <% if (tasks && tasks.length > 0) { %>
+          <% for( let i=0; i < tasks.length; i++ ) { %>
+            <div class="taskItem">
+                <input type="checkbox" name="taskCheckBox" id="check<%= i %>" />
+                <label class="strikethrough" id="text<%= i %>" ><%= tasks[i] %></label><br>
+              </div>
+                
+              <% } %>
+                  <% } %> 
+    
+        </div>
+       
+        <div class="gif-container">
+          <img class="gif" src="checklist.gif">
+        </div>
+      </div>
+  </div>
+
+
+
+<%- include("partials/footer.ejs") %>
+

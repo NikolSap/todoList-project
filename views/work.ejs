@@ -1,0 +1,37 @@
+
+<%- include("partials/header.ejs") %>
+
+<div class="body">
+
+
+    <h1>Work List</h1>
+
+    <div class="card">
+
+    <form action="/work" method="POST">
+      <input type="text" id="task" name="task" placeholder="New Task" />
+      <input type="submit" value="+">
+    </form>
+
+    <div class="input-container">
+    <% if (tasks && tasks.length > 0) { %>
+        <% for( let i=0; i < tasks.length; i++ ) { %>
+          <div class="taskItem">
+              
+                <input type="checkbox" name="taskCheckBox" class="checkbox check" id="check<%= i %>" />
+                <label class="strikethrough" id="text<%= i %>" ><%= tasks[i] %></label>
+              </div>
+            <% } %>
+                <% } %>
+    
+</div>
+
+<div class="gif-container">
+  <img class="gif" src="work-list.gif">
+</div>
+</div>
+
+</div>
+
+
+<%- include("partials/footer.ejs") %>
