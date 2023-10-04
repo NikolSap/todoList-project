@@ -181,3 +181,10 @@ a.todayUrl, a.workUrl {
     width: 250px;
   }
   
+  @media (max-width: 480px) {
+    .gif {
+      border-radius: 100%;
+      height: 100px;
+      width: 100px;
+    }
+  }
