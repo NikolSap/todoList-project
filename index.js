@@ -3,7 +3,6 @@ import bodyParser from "body-parser";
 import mongoose from 'mongoose';
 import _ from 'lodash'
 const app = express();
-const port = 3000;
 // const listOfTasksForToday = [];
 const listOfTasksForWork = [];
 //?retryWrites=true&w=majority
@@ -165,7 +164,10 @@ app.get("/", async (req, res) => {
   });
   
 
-
+  let port = process.env.PORT;
+  if (port == null || port == "") {
+    port = 8000;
+  }
 // app.get("/work", (req, res) => {
 //     res.render("work.ejs", { tasks: listOfTasksForWork});
 // });
