@@ -5,27 +5,33 @@
 <%- include("partials/header.ejs") %>
 
 <div class="body">
+  <h1><%= listTitle %></h1>
   <h1><%= day %> ,<%= date %> <%= month %> <%= year %></h1>
 
   <div class="card">
 
     <form action="/" method="POST">
       <input type="text" id="task" name="task" placeholder="New Task" />
-      <input type="submit" value="+">
+      <button type="submit" name="list" value="<%=listTitle %>">+</button>
     </form>
   
 
       <div class="input-container">
-
         <% if (tasks && tasks.length > 0) { %>
-          <% for( let i=0; i < tasks.length; i++ ) { %>
-            <div class="taskItem">
-                <input type="checkbox" name="taskCheckBox" id="check<%= i %>" />
-                <label class="strikethrough" id="text<%= i %>" ><%= tasks[i] %></label><br>
+            <% tasks.forEach(task => { %>
+              <form class="item" action="/delete" method="post">
+              <div class="taskItem">
+                <input type="checkbox" name="taskCheckBox" value="<%= task._id%>" onchange="this.form.submit()"/>
+                <label class="strikethrough"><%= task.name %></label><br>
               </div>
-                
-              <% } %>
-                  <% } %> 
+              <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+            </form>
+
+            <% }); %>
+
+         
+        <% } %>
+        
     
         </div>
        

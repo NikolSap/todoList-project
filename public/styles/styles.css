@@ -39,6 +39,16 @@ body {
     flex-grow: 1;
 
   }
+
+  .item{
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+ 
+  }
   
   .body{
     padding-top: 20px;
@@ -62,6 +72,8 @@ body {
     font-weight: bold;
     color: #1f044c;
     cursor: pointer;
+    width: 100%;
+
     border: 2px solid #1d1826;
   }
 
@@ -90,7 +102,7 @@ body {
 
   input[type="text"]{
 
-  width:53%; /* Set both input and .taskItem to 100% width */
+  width:57%; /* Set both input and .taskItem to 100% width */
   font-size: 1.1rem;
   background: white;
   padding: 1rem;
